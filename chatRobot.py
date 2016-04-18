@@ -8,6 +8,7 @@ import mp3play
 reload(sys)
 sys.setdefaultencoding('utf8')
 
+#Here you should apply for your own appid,apiKey and securityKey from Baidu TTS.
 appid='XXXX'
 apiKey='XXXX'
 securetKey='XXXX'
@@ -16,12 +17,12 @@ url='http://vop.baidu.com/server_api'
 urlOfToken='https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=pRM4Y0Z32GI3gmOetPg2qChE&client_secret=af97dd5f362e4ff06d006323a7c35318&'
 
 filecount=1000
-#获取密钥  这是必须的一步
+#Get acessToken
 req=urllib2.Request(urlOfToken)
 recv=urllib2.urlopen(req).read()
 recvJson=json.loads(recv)
 acessToken=recvJson['access_token']
-#采样率8000hz  采样位数16位  单声道
+#Sample 8000hz  16bit  
 #r'y:\\Coding\\python\\blocking.wav'
 def getAnswer(filename):
 	source=open(filename,'rb').read()
